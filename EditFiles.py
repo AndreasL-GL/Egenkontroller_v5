@@ -1,8 +1,5 @@
 import json
 import os
-import requests
-import yaml
-from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
 
 
