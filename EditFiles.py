@@ -286,7 +286,8 @@ if __name__ == '__main__':
     print(sys.argv[2])
     print(len(sys.argv))
     import base64
-    print(base64.b64decode(sys.argv[2]))
+    js = json.loads(base64.b64decode(sys.argv[2]).decode()
+    print(json.dumps(js,indent=2,ensure_ascii=False))
 
 
 
