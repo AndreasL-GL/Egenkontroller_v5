@@ -287,7 +287,7 @@ if __name__ == '__main__':
     print(len(sys.argv))
     import base64
     js = json.loads(base64.b64decode(sys.argv[2]).decode())
-    print(json.dumps(js,indent=2,ensure_ascii=False))
+    EditFiles(js["Site"],js["ReportListID"],js["ProjectName"],js["Controls"],js["Navigation"])
 
 
 
