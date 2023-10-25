@@ -285,6 +285,8 @@ if __name__ == '__main__':
     import sys
     print(sys.argv[2])
     print(len(sys.argv))
+    import base64
+    print(base64.b64decode(sys.argv[2]))
 
 
 
