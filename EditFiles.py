@@ -283,7 +283,8 @@ if __name__ == '__main__':
     # Navigation = [{"name":"nav1","value":"Region"},{"name":"nav2","value":"Round"},{"name":"nav3","value":"Savanntyp"},{"name":"nav4","value":"City"},{"name":"nav5","value":"[[None]]"},{"name":"nav6","value":"[[None]]"},{"name":"nav7","value":"[[None]]"},{"name":"nav8","value":"[[None]]"},{"name":"nav9","value":"[[None]]"},{"name":"nav10","value":"[[None]]"}]
     # EditFiles("https://greenlandscapingmalmo.sharepoint.com/sites/TrdexperternaApplikationer","bb01f731-6aa5-47cc-9c38-9dd624fbc105","Egenkontroller_v4", Controls, Navigation)
     import sys
-    json.dumps(json.loads(sys.argv[2]),indent=2,ensure_ascii=False)
+    print(sys.argv[2])
+    print(len(sys.argv))
 
 
 
