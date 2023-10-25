@@ -1,0 +1,30 @@
+{
+  "64623e8d-3602-4549-a0f1-5ae128ffa195": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/henryorsborn/partial-builds/asev3migrations-with-resourceTemplate/1.0.1653.3414/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://greenlandscapingmalmo.sharepoint.com/sites/TrdexperternaApplikationer_al_SharepointSite": {
+        "datasetOverride": {
+          "environmentVariableName": "al_SharepointSite"
+        },
+        "dataSources": {
+          "ReportList": {
+            "tableName": "bb01f731-6aa5-47cc-9c38-9dd624fbc105",
+            "tableNameOverride": {
+              "environmentVariableName": "al_ReportList"
+            }
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "ReportList"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "64623e8d-3602-4549-a0f1-5ae128ffa195"
+  }
+}

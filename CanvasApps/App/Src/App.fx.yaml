@@ -1,0 +1,21 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |-
+        =Set(varNavscreens,4);
+        Set(varLanguage,"Swedish");
+        Set(varPrimaryColor,RGBA(22,80,22,0.8));
+        Set(varSecondaryColor,RGBA(122,160,122,0.8));
+        Set(varTextColor,RGBA(230,230,230,0.8));
+        Set(varLastClick,"");
+        Set(varAppTitle,"TestProjekt");
+        Set(SortDescending,false)
+    StartScreen: =If(IsBlank(Param("ControlID")),StartScreen,Forminputs)
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

@@ -1,0 +1,143 @@
+Nav4 As screen:
+
+    "NavGallery4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        DelayItemLoading: =true
+        Height: =942
+        Items: |-
+            =Sort(Filter(Distinct(Filter(ReportList,
+            OData__x006e_av1 = NavGallery1.Selected.Value And 
+            OData__x006e_av2 = NavGallery2.Selected.Value And 
+            OData__x006e_av3 = NavGallery3.Selected.Value),OData__x006e_av4),TextInput1.Text in Value),SortDescending1)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =104
+        Y: =193
+        ZIndex: =1
+
+        Image1_3 As image:
+            Height: =72
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Width: =72
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        Title1_3 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Value
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 173
+            X: =111
+            Y: =35
+            ZIndex: =2
+
+        NextArrow1_3 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(166, 166, 166, 1)
+            Height: =50
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent);Select(Parent);If(varNavscreens=4,Navigate(Forminputs),Navigate(Nav5));Set(varLastClick,ThisItem.Value)
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Tooltip: ="Visa objektinformation"
+            Width: =50
+            X: =Parent.TemplateWidth - Self.Width - 12
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator1_3 As rectangle:
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =5
+
+        Rectangle1_3 As rectangle:
+            Fill: =Coalesce(varPrimaryColor,RGBA(0, 18, 107, 1))
+            Height: =Parent.TemplateHeight - Separator1_3.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =6
+
+    Label1_3 As label:
+        Align: =Align.Center
+        Color: =Coalesce(varTextColor,RGBA(180, 180, 180, 1))
+        Fill: =Coalesce(varPrimaryColor,RGBA(0, 0, 0, 0.3))
+        Height: =70
+        Size: =21
+        Text: =varAppTitle
+        Width: =640
+        ZIndex: =2
+
+    Label1_13 As label:
+        Align: =Align.Center
+        Color: =Coalesce(varTextColor,RGBA(180, 180, 180, 1))
+        Fill: =Coalesce(varSecondaryColor,RGBA(0, 0, 0, 0))
+        Height: =54
+        Size: =21
+        Text: ="City"
+        Width: =640
+        Y: =70
+        ZIndex: =3
+
+    Icon1_3 As icon.BackArrow:
+        Color: =ColorFade(Coalesce(varSecondaryColor,RGBA(0, 0, 0, 0)),15%)
+        Height: =67
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Nav3,ScreenTransition.Fade)
+        ZIndex: =4
+
+    IconRefresh2 As icon.Reload:
+        AccessibleLabel: =IconRefresh2.Tooltip
+        Color: =Coalesce(varTextColor,RGBA(255, 255, 255, 1))
+        Height: =67
+        Icon: =Icon.Reload
+        OnSelect: =Refresh(ReportList)
+        PaddingBottom: =10
+        PaddingTop: =10
+        TabIndex: =0
+        Tooltip: ="Uppdatera lista"
+        Width: =93
+        X: =476
+        ZIndex: =5
+
+    IconSortUpDown2 As icon.ArrowsUpDown:
+        AccessibleLabel: =IconSortUpDown2.Tooltip
+        Color: =Coalesce(varTextColor,RGBA(255, 255, 255, 1))
+        Height: =67
+        Icon: =Icon.Sort
+        OnSelect: |-
+            =UpdateContext({SortDescending1: !SortDescending1})
+        PaddingBottom: =10
+        PaddingTop: =10
+        TabIndex: =0
+        Tooltip: =If(SortDescending1, "Sortera listan i omvänd alfabetisk ordning", "Sortera listan i alfabetisk ordning")
+        Width: =88
+        X: =552
+        ZIndex: =6
+
+    TextInput1 As text:
+        BorderColor: =Coalesce(varPrimaryColor,RGBA(0, 18, 107, 1))
+        Default: =""
+        Height: =70
+        HoverBorderColor: =Coalesce(varSecondaryColor,RGBA(0, 18, 107, 1))
+        HoverFill: =ColorFade(Coalesce(varSecondaryColor,RGBA(186, 202, 226, 1)),50%)
+        Size: =21
+        Width: =640
+        Y: =123
+        ZIndex: =7
+

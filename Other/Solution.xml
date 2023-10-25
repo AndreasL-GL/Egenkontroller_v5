@@ -1,0 +1,107 @@
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="9.2.23094.206" SolutionPackageVersion="9.2" languagecode="1053" generatedBy="CrmLive">
+  <SolutionManifest>
+    <UniqueName>Egenkontroller_v4</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Egenkontroller_v4" languagecode="1053" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.0</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>AndreasL</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Andreas" languagecode="1053" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress xsi:nil="true" />
+      <SupportingWebsiteUrl xsi:nil="true" />
+      <CustomizationPrefix>al</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>12091</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true" />
+          <County xsi:nil="true" />
+          <Country xsi:nil="true" />
+          <Fax xsi:nil="true" />
+          <FreightTermsCode xsi:nil="true" />
+          <ImportSequenceNumber xsi:nil="true" />
+          <Latitude xsi:nil="true" />
+          <Line1 xsi:nil="true" />
+          <Line2 xsi:nil="true" />
+          <Line3 xsi:nil="true" />
+          <Longitude xsi:nil="true" />
+          <Name xsi:nil="true" />
+          <PostalCode xsi:nil="true" />
+          <PostOfficeBox xsi:nil="true" />
+          <PrimaryContactName xsi:nil="true" />
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true" />
+          <Telephone1 xsi:nil="true" />
+          <Telephone2 xsi:nil="true" />
+          <Telephone3 xsi:nil="true" />
+          <TimeZoneRuleVersionNumber xsi:nil="true" />
+          <UPSZone xsi:nil="true" />
+          <UTCOffset xsi:nil="true" />
+          <UTCConversionTimeZoneCode xsi:nil="true" />
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true" />
+          <County xsi:nil="true" />
+          <Country xsi:nil="true" />
+          <Fax xsi:nil="true" />
+          <FreightTermsCode xsi:nil="true" />
+          <ImportSequenceNumber xsi:nil="true" />
+          <Latitude xsi:nil="true" />
+          <Line1 xsi:nil="true" />
+          <Line2 xsi:nil="true" />
+          <Line3 xsi:nil="true" />
+          <Longitude xsi:nil="true" />
+          <Name xsi:nil="true" />
+          <PostalCode xsi:nil="true" />
+          <PostOfficeBox xsi:nil="true" />
+          <PrimaryContactName xsi:nil="true" />
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true" />
+          <Telephone1 xsi:nil="true" />
+          <Telephone2 xsi:nil="true" />
+          <Telephone3 xsi:nil="true" />
+          <TimeZoneRuleVersionNumber xsi:nil="true" />
+          <UPSZone xsi:nil="true" />
+          <UTCOffset xsi:nil="true" />
+          <UTCConversionTimeZoneCode xsi:nil="true" />
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="29" id="{1257283e-6572-ee11-8179-002248993e6c}" behavior="0" />
+      <RootComponent type="29" id="{f1e37e9f-6572-ee11-8179-002248993e6c}" behavior="0" />
+      <RootComponent type="300" schemaName="al_reportapp_b641c" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="al_sharedsharepointonline_636d0" solution="Active" id.connectionreferencelogicalname="al_sharedsharepointonline_636d0" />
+        <Dependent type="29" displayName="Create Lists v2" id="{1257283e-6572-ee11-8179-002248993e6c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="al_Sharepoint" solution="Active" id.connectionreferencelogicalname="al_Sharepoint" />
+        <Dependent type="29" displayName="Create Lists v2" id="{1257283e-6572-ee11-8179-002248993e6c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="new_sharedsharepointonline_7493a" solution="Active" id.connectionreferencelogicalname="new_sharedsharepointonline_7493a" />
+        <Dependent type="29" displayName="Create Lists v2" id="{1257283e-6572-ee11-8179-002248993e6c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="al_Information_field_description" solution="Active" id.schemaname="al_Information_field_description" />
+        <Dependent type="29" displayName="Create Lists v2" id="{1257283e-6572-ee11-8179-002248993e6c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="EnvironmentVariableDefinition" displayName="al_Status_field_description" solution="Active" id.schemaname="al_Status_field_description" />
+        <Dependent type="29" displayName="Create Lists v2" id="{1257283e-6572-ee11-8179-002248993e6c}" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

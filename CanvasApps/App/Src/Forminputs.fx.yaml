@@ -1,0 +1,442 @@
+Forminputs As screen:
+    OnVisible: |-
+        =Refresh(ReportList);Set(varControlID,If(!IsBlank(Param("ControlID")),Int(Param("ControlID")),
+        
+        LookUp(ReportList,
+        OData__x006e_av1 = NavGallery1.Selected.Value And 
+        If(varNavscreens>=2,OData__x006e_av2 = NavGallery2.Selected.Value,true) And 
+        If(varNavscreens>=3,OData__x006e_av3 = NavGallery3.Selected.Value,true) And 
+        If(varNavscreens>=4,OData__x006e_av4 = NavGallery4.Selected.Value,true) And 
+        If(varNavscreens>=5,OData__x006e_av5 = NavGallery5.Selected.Value,true) And 
+        If(varNavscreens>=6,OData__x006e_av6 = NavGallery6.Selected.Value,true) And 
+        If(varNavscreens>=7,OData__x006e_av7 = NavGallery7.Selected.Value,true) And 
+        If(varNavscreens>=8,OData__x006e_av8 = NavGallery8.Selected.Value,true) And 
+        If(varNavscreens>=9,OData__x006e_av9 = NavGallery9.Selected.Value,true) And
+        If(varNavscreens>=10,OData__x006e_av10 = NavGallery10.Selected.Value,true)
+        ).ID))
+
+    Form1 As form:
+        DataSource: =ReportList
+        Height: =437
+        Item: |-
+            =LookUp(ReportList,ID=varControlID
+            )
+        Width: =640
+        Y: =240
+        ZIndex: =1
+
+        "'Rengöring hårdgjorda ytor_DataCard1' As typedDataCard.toggleEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Reng_x00f6_ring_x0020_h_x00e5_rd"
+            Default: =ThisItem.'Rengöring hårdgjorda ytor'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@ReportList],DataSourceInfo.DisplayName,"Reng_x00f6_ring_x0020_h_x00e5_rd")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue5.Value
+            Visible: =If(Self.DisplayName in ThisItem.Controls.Value,true,false)
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+            DataCardKey5 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue5 As toggleSwitch:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                FalseFill: =Coalesce(varSecondaryColor,RGBA(128, 130, 133, 1))
+                Height: =31
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                TrueFill: =Coalesce(varPrimaryColor,RGBA(56, 96, 178, 1))
+                Width: =126
+                X: =30
+                Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                ZIndex: =2
+
+            ErrorMessage5 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue5.Y + DataCardValue5.Height
+                ZIndex: =3
+
+            StarVisible5 As label:
+                Align: =Align.Center
+                Height: =DataCardKey5.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey5.Y
+                ZIndex: =4
+
+    Form2 As form:
+        DataSource: =ReportList
+        Height: =374
+        Item: |-
+            =LookUp(ReportList,ID=varControlID
+            )
+        Width: =640
+        Y: =658
+        ZIndex: =2
+
+        "'Bifogade filer_DataCard1' As typedDataCard.attachmentsEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="{Attachments}"
+            Default: =ThisItem.'Bifogade filer ({Attachments})'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@ReportList],DataSourceInfo.DisplayName,"{Attachments}")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =140
+            Required: =false
+            Update: =DataCardValue18.Attachments
+            Width: =400
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey18 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: |-
+                    =Coalesce(If(varLanguage="Swedish","Bifogade bilder"),
+                    If(varLanguage="English","Pictures"),
+                    If(varLanguage="German","Angehängte Bilder")
+                    )
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue18 As attachments:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DisplayMode: =Parent.DisplayMode
+                Height: =166
+                HoverFill: =Coalesce(varSecondaryColor,RGBA(186, 202, 226, 1))
+                IsInDataCard: =true
+                ItemFill: =Coalesce(varPrimaryColor,RGBA(56, 96, 178, 1))
+                ItemHoverFill: =ColorFade(Self.ItemFill,15%)
+                Items: =Parent.Default
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =340
+                X: =30
+                Y: =DataCardKey18.Y + DataCardKey18.Height + 5
+                ZIndex: =2
+
+            ErrorMessage18 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue18.Y + DataCardValue18.Height
+                ZIndex: =3
+
+            StarVisible18 As label:
+                Align: =Align.Center
+                Height: =DataCardKey18.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey18.Y
+                ZIndex: =4
+
+        Status_DataCard3 As typedDataCard.toggleEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Status"
+            Default: =ThisItem.Status
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@ReportList],DataSourceInfo.DisplayName,"Status")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue17.Value
+            Width: =240
+            X: =1
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey17 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue17 As toggleSwitch:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                FalseFill: =Coalesce(varSecondaryColor,RGBA(128, 130, 133, 1))
+                Height: =30
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                TrueFill: =Coalesce(varPrimaryColor,RGBA(56, 96, 178, 1))
+                Width: =118
+                X: =30
+                Y: =DataCardKey17.Y + DataCardKey17.Height + 5
+                ZIndex: =2
+
+            ErrorMessage17 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue17.Y + DataCardValue17.Height
+                ZIndex: =3
+
+            StarVisible17 As label:
+                Align: =Align.Center
+                Height: =DataCardKey17.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey17.Y
+                ZIndex: =4
+
+        Comment_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Comment"
+            Default: =ThisItem.Comment
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@ReportList],DataSourceInfo.DisplayName,"Comment")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@ReportList], DataSourceInfo.MaxLength, "Comment")
+            Required: =false
+            Update: =DataCardValue27.Text
+            Width: =640
+            X: =2
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey27 As label:
+                Height: =28
+                Size: =21
+                Text: |-
+                    =Coalesce(If(varLanguage="Swedish","Kommentar"),
+                    If(varLanguage="English","Comment"),
+                    If(varLanguage="German","Kommentar")
+                    )
+                Width: =248
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue27 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                HoverFill: =Coalesce(varSecondaryColor,RGBA(186, 202, 226, 1))
+                MaxLength: =Parent.MaxLength
+                Mode: =TextMode.MultiLine
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey27.Y + DataCardKey27.Height + 5
+                ZIndex: =2
+
+            ErrorMessage20 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue27.Y + DataCardValue27.Height
+                ZIndex: =3
+
+            StarVisible20 As label:
+                Align: =Align.Center
+                Height: =DataCardKey27.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey27.Y
+                ZIndex: =4
+
+    FormViewer1 As formViewer:
+        DataSource: =ReportList
+        Height: =145
+        Item: |-
+            =LookUp(ReportList,ID=varControlID
+            )
+        Width: =395
+        Y: =87
+        ZIndex: =3
+
+        Information_DataCard3 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Information"
+            Default: =ThisItem.Information
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@ReportList],DataSourceInfo.DisplayName,"Information")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =138
+            Required: =false
+            Width: =395
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+            DataCardKey19 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: |-
+                    =Coalesce(If(varLanguage="Swedish","Information"),
+                    If(varLanguage="English","Information"),
+                    If(varLanguage="German","Information")
+                    )
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =15
+                ZIndex: =1
+
+            DataCardValue19 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey19.Y + DataCardKey19.Height + 5
+                ZIndex: =2
+
+    Button1 As button:
+        Color: =Coalesce(varTextColor,RGBA(255, 255, 255, 1))
+        Fill: =Coalesce(varPrimaryColor,RGBA(56, 96, 178, 1))
+        Height: =70
+        HoverColor: =ColorFade(Coalesce(varTextColor,RGBA(255, 255, 255, 1)),-20%)
+        HoverFill: =ColorFade(Self.Fill, -15%)
+        OnSelect: |-
+            =Patch(ReportList,LookUp(ReportList,ID=varControlID
+            ),Form2.Updates);
+            Patch(ReportList,LookUp(ReportList,ID=varControlID
+            ),Form1.Updates);
+            Navigate(Nav1)
+        Size: =24
+        Text: |-
+            =Coalesce(
+                If(varLanguage="Swedish","Spara"),
+                If(varLanguage="English","Save"),
+                If(varLanguage="German","Speichern")
+                )
+        Width: =280
+        X: =180
+        Y: =1034
+        ZIndex: =4
+
+    Label3 As label:
+        Height: =70
+        Size: =21
+        Text: =varLastClick
+        Width: =245
+        X: =395
+        Y: =124
+        ZIndex: =5
+
+    Label1_14 As label:
+        Align: =Align.Center
+        Color: =Coalesce(varTextColor,RGBA(180, 180, 180, 1))
+        Fill: =Coalesce(varPrimaryColor,RGBA(0, 0, 0, 0.3))
+        Height: =70
+        Size: =21
+        Text: =varAppTitle
+        Width: =640
+        ZIndex: =6
+
+    Icon1_10 As icon.BackArrow:
+        Color: =Coalesce(varSecondaryColor,RGBA(0, 0, 0, 1))
+        Height: =67
+        Icon: =Icon.BackArrow
+        OnSelect: |-
+            =Navigate(Index([
+                {Value:Nav1},
+                {Value:Nav2},
+                {Value:Nav3},
+                {Value:Nav4},
+                {Value:Nav5},
+                {Value:Nav6},
+                {Value:Nav7},
+                {Value:Nav8},
+                {Value:Nav9},
+                {Value:Nav10}
+                ],
+                varNavscreens).Value,ScreenTransition.Fade)
+        ZIndex: =7
+
