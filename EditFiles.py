@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 
 
 
-def EditFiles(Site, list_id,projectname,Controls, Navigation):
+def EditFiles(Site, list_id,projectname,Controls, Navigation, LogListID):
     for root,_,files in os.walk(os.path.dirname(__file__)):
         for file in files:
             fpath = os.path.join(root,file)
