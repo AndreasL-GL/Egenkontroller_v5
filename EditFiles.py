@@ -287,9 +287,8 @@ if __name__ == '__main__':
     js = json.loads(base64.b64decode(sys.argv[2]).decode())
     if isinstance(js,str):
         js=json.loads(js)
-    print(js)
-    print(type(js))
-    EditFiles(js["Site"],js["ReportListID"],js["ProjectName"],js["Controls"],js["Navigation"])
+
+    EditFiles(js["Site"],js["ReportListID"],js["ProjectName"],js["Controls"],js["Navigation"], js["LogListID"])
 
 
 
